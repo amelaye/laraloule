@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TopicController@index')->name('topics.index');
+Route::resource('topics','TopicController')->except(['index']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
